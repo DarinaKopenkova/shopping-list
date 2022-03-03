@@ -1,0 +1,38 @@
+.item {
+    font-size: 20px;
+    padding: 10px 0;
+    display: flex;
+}
+
+.item_finished {}
+
+.item_finished .item__text {
+    text-decoration: line-through;
+    color: rgba(0, 0, 0, 0.34)
+}
+
+/* .item_finished .item__checkmark {
+    visibility: visible;
+}
+
+.item__checkmark {
+    visibility: hidden;
+} */
+
+.item__text {
+    padding-left: 15px;
+}
+
+.item__icon {
+    border: 2px solid black;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item__icon:hover {
+    border-color: rgba(0, 0, 0, 0.34);
+}

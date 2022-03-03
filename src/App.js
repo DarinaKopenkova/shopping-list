@@ -1,23 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Item from "./components/Item/Item";
+
+let initialList = [
+  {
+    text: "Apples",
+    finished: false,
+  },
+  {
+    text: "Oranges",
+    finished: false,
+  },
+  {
+    text: "Potato",
+    finished: false,
+  },
+  {
+    text: "Beans",
+    finished: true,
+  },
+];
 
 function App() {
+  const [list, setList] = React.useState(initialList);
+
+  function onDelete(targetIndex) {
+    const newList = list.map((item, index) => {
+      if (index !== targetIndex) {
+        return item;
+      } else {
+        return {
+          ...item,
+          finished: !item.finished,
+        };
+      }
+    });
+    setList(newList);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="root">
+      {list.map((item, index) => (
+        <Item index={index} onClick={onDelete} item={item} />
+      ))}
     </div>
   );
 }
