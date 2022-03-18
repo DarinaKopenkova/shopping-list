@@ -2,6 +2,7 @@
     font-size: 20px;
     padding: 10px 0;
     display: flex;
+    border-bottom: 1px solid #ecebe4;
 }
 
 .item_finished {}
