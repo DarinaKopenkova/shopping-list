@@ -5,20 +5,12 @@
     border-bottom: 1px solid #ecebe4;
 }
 
-.item_finished {}
 
 .item_finished .item__text {
     text-decoration: line-through;
     color: rgba(0, 0, 0, 0.34)
 }
 
-/* .item_finished .item__checkmark {
-    visibility: visible;
-}
-
-.item__checkmark {
-    visibility: hidden;
-} */
 
 .item__text {
     padding-left: 15px;

@@ -19,6 +19,9 @@ export default class Button extends Component {
   onSubmit(e) {
     e.preventDefault();
     this.props.onAdd(this.state.text);
+    this.setState({
+      text: "",
+    });
   }
 
   render() {
@@ -32,6 +35,7 @@ export default class Button extends Component {
           type="text"
           placeholder="Add item"
           onChange={this.onValueChange}
+          value={this.state.text}
         ></input>
       </form>
     );

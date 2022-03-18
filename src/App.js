@@ -11,7 +11,6 @@ export default class App extends Component {
         { text: "Apples", finished: false, id: 1 },
         { text: "Oranges", finished: false, id: 2 },
         { text: "Potato", finished: false, id: 3 },
-        { text: "Beans", finished: true, id: 4 },
       ],
     };
     this.onDelete = this.onDelete.bind(this);
