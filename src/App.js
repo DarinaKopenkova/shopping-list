@@ -16,7 +16,7 @@ export default class App extends Component {
     this.onDelete = this.onDelete.bind(this);
     this.onMoveItem = this.onMoveItem.bind(this);
     this.onAdd = this.onAdd.bind(this);
-
+    this.removeItem = this.removeItem.bind(this);
     this.maxId = 4;
   }
   onDelete(id) {
@@ -46,6 +46,9 @@ export default class App extends Component {
   }
 
   onAdd(value) {
+    if (!value) {
+      return;
+    }
     const newItem = {
       text: value,
       finished: false,
@@ -58,6 +61,16 @@ export default class App extends Component {
       };
     });
   }
+  removeItem(id) {
+    let indexItem = this.state.initialList.findIndex((elem) => elem.id === id);
+    const before = this.state.initialList.slice(0, indexItem);
+    const after = this.state.initialList.slice(indexItem + 1);
+    this.setState(({ initialList }) => {
+      return {
+        initialList: [...before, ...after],
+      };
+    });
+  }
 
   render() {
     return (
@@ -67,6 +80,7 @@ export default class App extends Component {
           <Item
             onChange={this.onMoveItem}
             onClick={this.onDelete}
+            onRemove={this.removeItem}
             item={item}
           />
         ))}

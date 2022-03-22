@@ -3,6 +3,7 @@
     padding: 10px 0;
     display: flex;
     border-bottom: 1px solid #ecebe4;
+    position: relative;
 }
 
 
@@ -28,4 +29,16 @@
 
 .item__icon:hover {
     border-color: rgba(0, 0, 0, 0.34);
+}
+
+.item__button-remove {
+    background-color: #fff;
+    border: none;
+    position: absolute;
+    right: 0;
+    fill: rgba(0, 0, 0, 0.34);
+}
+
+.item__button-remove:hover {
+    fill: black;
 }
