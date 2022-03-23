@@ -36,13 +36,14 @@ export default class App extends Component {
   }
 
   onMoveItem(arr, id) {
+    let after = [];
     arr.forEach((item, index) => {
       if (item.id === id) {
-        arr.push(item);
+        after.unshift(item);
         arr.splice(index, 1);
       }
     });
-    return arr;
+    return [...arr, ...after];
   }
 
   onAdd(value) {
