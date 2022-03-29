@@ -19,6 +19,15 @@ export default class App extends Component {
     this.removeItem = this.removeItem.bind(this);
     this.maxId = 4;
   }
+  componentDidMount() {
+    const initialData = JSON.parse(localStorage.getItem("items"));
+    if (initialData) {
+      this.setState({ initialList: initialData });
+    }
+  }
+  componentDidUpdate() {
+    localStorage.setItem("items", JSON.stringify(this.state.initialList));
+  }
   onDelete(id) {
     let newList = this.state.initialList.map((item) => {
       if (item.id === id) {
